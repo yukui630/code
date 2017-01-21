@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>导航条</title>
+	<style type="text/css">
+	html,body{
+		margin:0;
+		padding: 1px;
+	}
+	ul{
+		padding-left: 0;
+	}
+	.box{
+		border:1px solid #ddd;
+		width: 500px;
+		height: 26px;
+		font-size: 0;
+		font-family: 微软雅黑;
+		background-color: #ddd;
+		}
+		li{
+		   list-style: none;
+		   padding: 1px 10px;
+		}
+		li:hover{
+			background: #ccc;
+			cursor: pointer;
+		}
+		.box>li{
+			display: inline-block;
+			font-size: 16px;
+			height: 25px;
+		}
+		.child{
+			display: none;
+			position: absolute;
+			left: 2px;
+			top: 30px;
+			border:1px solid #ddd;
+		}
+		.box>li:nth-child(2) .child{
+			position: absolute;
+			left: 55px;	
+		}
+		.box>li:nth-child(3) .child{
+			position: absolute;
+			left: 123px;	
+		}
+		.box>li:hover .child{
+			display: block;
+		}
+		
+
+	</style>
+</head>
+<body>
+<ul class="box">
+	<li>前端
+		<ul class="child">
+			<li>JavaScript</li>
+			<li>CSS</li>
+			<li>HTML</li>
+		</ul>
+	</li>
+	<li>服务器
+		<ul class="child">
+			<li>NODE</li>
+			<li>PHP</li>
+			<li>Java</li>
+		</ul>
+	</li>
+	<li>前端工具
+		<ul class="child">
+			<li>sublime</li>
+			<li>Webstrom</li>
+			<li>GIT</li>
+		</ul>
+	</li>
+	<li>HTML</li>
+	<li>NODE</li>
+</ul>
+
+</body>
+</html>

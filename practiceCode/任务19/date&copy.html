@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<script>
+	//写一个函数getIntv，获取从当前时间到指定日期的间隔时间
+	function getIntv(date){
+		var time= (new Date(date)-Date.now())/1000;
+		var day=Math.floor(time/3600/24);
+		var hour=Math.floor(time/3600%24)-8;
+		var minute=Math.floor(time/60%60);
+		var sec=Math.floor(time%60);
+		console.log("距离"+date+"还有"+day+"天"+hour+"小时"+minute+"分钟"+sec+"秒")
+	}
+
+//把数字日期改为中文日期
+function getChsDate(date){
+	var t=new Date(date);
+	var a =['零','一','二','三','四','五','六','七','八','九','十','十一','十二','十三','十四','十五','十六','十七','十八','十九','二十','二十一','二十二','二十三','二十四','二十五','二十六','二十七','二十八','二十九','三十','三十一'];
+	var y=t.getFullYear()+'';
+	var m=t.getMonth()+1;
+	var d=t.getDate();
+	var time='';
+	for(var i=0;i<y.length;i++){
+		time=time+a[y[i]];
+	}
+	return time+'年'+a[m]+'月'+a[d]+'日';
+}
+
+//写一个函数获取n天前的日期
+function getLastNDays(n){
+	var t=new Date(Date.now()-n*1000*3600*24);
+	return t.toLocaleDateString();
+}
+
+
+//获取程序执行的时间
+var Runtime=(function(){
+	var obj={
+		start:function(){
+			t1=Date.now();	
+	   },
+	    end:function(){
+	    	t2=Date.now();
+	    },
+	    get:function(){
+	    	return t2-t1;
+	    }
+	};
+	return obj;
+}());
+Runtime.start();
+for(var i=0;i<100000;i++){
+	console.log();
+}
+Runtime.end();
+console.log(Runtime.get());
+
+
+//楼梯有20级，每次走1级或是2级，从底走到顶一共有多少种走法？用代码（递归）实现
+function f(n){
+	if(n==0||n==1){
+		return 1;
+	}else{
+		return f(n-1)+f(n-2);
+	}
+}
+//深拷贝
+function deepCopy(obj){
+	var obj1={};
+	for(var key in obj){
+		if(typeof obj[key] === 'object'){
+			obj1[key]=deepCopy(obj[key]);
+		}else{
+			obj1[key]=obj[key];
+		}
+	}
+	return obj1;
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>jquery基础1</title>
+	<style type="text/css">
+		h1{
+			position: relative;
+			left: 0;
+			width: 100px;
+			height: 50px;
+			background: pink;
+		}
+		p{
+			width: 100px;
+			height: 50px;
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+<div id="hd">
+	<div class="ct">
+	    <h1>标题</h1>
+		<p class="p1">段落</p>
+	</div>
+	<button class="btn">click me</button>
+</div>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.js">
+</script>
+<script type="text/javascript">
+$(".btn").on("click",function() {
+	$('.p1').show('slow');
+	$('h1').animate(
+	{
+		background:'red',//无法执行，除非使用jQuery.Color插件
+		left:'+=50px',
+		fontSize:'40px'
+	});
+});
+    
+$('.p1').on('mouseenter',function(){
+	$(this).hide('slow');
+})
+</script>
+</body>
+</html>

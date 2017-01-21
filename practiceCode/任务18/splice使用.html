@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+function isArray(arr){
+	return (typeof arr === 'object')&&(arr instanceof Array)
+}	
+
+//获取数组最大值
+var arr=[3,1,12,4,20,45];
+var max=arr[0];
+for(var i=0;i<arr.length;i++){
+	if (max<arr[i]) {max=arr[i]}
+}
+console.log(max); //Math.max.apply(null,arr)
+
+//用splice写pop,删除数组最后一位
+function pop(arr){
+	return arr.splice(arr.length-1,arr.length-1)
+}
+
+function push(a,x){
+    a.splice(a.length+1,0,x);
+    return a.length;
+}
+
+function unshift(arr,x){
+	arr.splice(0,0,x);
+	return arr.length;
+}
+
+function shift(arr){
+	return arr.splice(0,1)
+}
+</script>
+
+</body>
+</html>

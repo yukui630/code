@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>浮动</title>
+	<style type="text/css">
+	.container{
+		border:1px solid #ccc;
+		width: 400px;
+		height: 500px;
+		font-size: 16px;
+	}	
+	.div1{
+		background-color: red;
+		width: 100px;
+		height: 100px;
+		float: left;
+	}
+	.div2{
+		background-color: #00BFFF;
+		width:100px;
+		height: 100px;
+		float: right;
+	}
+	.div3{
+		background-color: yellow;
+		width: 100px;
+		height: 100px;
+	
+
+	}
+	</style>
+
+</head>
+<body>
+<div class="container">
+    <div class="div1">我是框1，向左浮动</div>
+	<div class="div2">我是框2，向右浮动</div>
+	<div class="div3">我是框3，没有浮动，背景被框1挡住了，文字被挤到了下面</div>
+</div>
+</body>
+</html>

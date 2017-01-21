@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>renwu 18</title>
+</head>
+<body>
+<script type="text/javascript">
+var prod = {
+    name: '女装',
+    styles: ['短款', '冬季', '春装']
+};
+function getTpl(data){
+	var arr=[];
+	arr.push('<dl class="product">');
+	arr.push('   <dt>'+data.name+'</dt>');
+	for(var i=0;i<data.styles.length;i++){
+		arr.push('   <dd>'+data.styles[i]+'</dd>');
+	}   
+	arr.push('/dl');
+	return arr.join('\n');
+}
+var result = getTpl(prod);  
+
+function find(arr,val){
+	return arr.indexOf(val);
+}
+
+function filterNumeric(arr){
+	var newarr=[];
+	for(var i=0;i<arr.length;i++){
+		if(typeof arr[i] === "number"){
+			newarr.push(arr[i]);
+		}
+	}
+	return newarr;
+}
+
+
+function addClass(obj,x){
+	var arr=obj.className.split(' ');
+	if(arr.every(function(e,i,arr){
+		return e !== x;
+	})){
+		arr.push(x);
+	}
+	return obj.className=arr.join(' ');
+}
+function addClass1(obj,x){
+	var arr=obj.className.split(' ');
+	if(arr.indexOf(x)=== -1){
+		arr.push(x);
+	}
+	return obj.className=arr.join(' ');
+}
+
+
+
+function removeClass(obj,x){
+	var arr=obj.className.split(' ');
+	for(var i=0;i<arr.length;i++){
+		if(arr[i]===x){
+			arr.splice(i,1);
+			break;
+		}
+	}
+	return obj.className=arr.join(' ');
+}
+
+
+function removeClass1(obj,x){
+	var arr=obj.className.split(' ');
+	if(arr.indexOf(x)!==-1){
+		arr.splice(arr.indexOf(x),1);
+	}
+	return obj.className=arr.join(' ');
+}
+
+function camelize(str){
+	var arr=str.split('-');
+	for(var i=1;i<arr.length;i++){
+		arr[i]=arr[i].charAt(0).toUpperCase()+arr[i].substr(1);
+	}
+	return arr.join('');
+}
+
+function isPalindrome(str){
+	var arr=str.split('');
+	return arr.reverse().join('')===str;
+}
+
+function ageSort(arr){
+       return arr.sort(function(v1,v2){
+        return v1.age-v2.age;
+        })
+}      
+
+
+
+
+function filter(arr,func){
+	var a=[];
+	for(var i=0;i<arr.length;i++){
+		if(func(arr[i])){
+		   a.push(arr[i]);
+		}
+	}
+	return a;
+}
+
+// 写一个ucFirst函数，返回第一个字母为大写的字符
+function ucFirst(str){
+    var a=str.split('');
+    a[0]=a[0].toUpperCase();
+    return a.join('');
+}
+
+//写一个函数truncate(str, maxlength), 如果str的长度大于maxlength，会把str截断到maxlength长，并加上...
+function truncate(str,maxlength){
+	if(str.length > maxlength){
+		str=str.substr(0,maxlength)+'...';
+	}
+	return str;
+}
+
+//1.写一个函数，获取从min到max之间的随机整数，包括min不包括max 
+// function getRandomInt(min, max) {
+//   return Math.floor(Math.random() * (max - min)) + min;
+// }
+// for(var i=0;i<20;i++){
+// 	console.log(getRandomInt(3, 10));
+// }
+
+//2.写一个函数，获取从min都max之间的随机整数，包括min包括max
+// function getRandomInt(min, max) {
+//   return Math.floor(Math.random() * (max - min+1)) + min;
+// }
+// for(var i=0;i<20;i++){
+// 	console.log(getRandomInt(3, 10));
+// }
+
+//3.写一个函数，获取一个随机数组，数组中元素为长度为len，最小值为min，最大值为max(44.包括)的随机整数
+// function getRandomArr(len,min,max){
+// 	var arr=[];
+// 	for(var i=0;i<len;i++){
+// 		arr.push(Math.floor(Math.random() * (max - min+1)) + min);
+// 	}
+// 	return arr;
+// }
+// for(var i=0;i<5;i++){
+// 	console.log(getRandomArr(6,2,6));
+// }
+
+
+
+function getRandomStr(len){
+	var arr=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','1','2','3','4','5','6','7','8','9','0'];
+	var a=[];
+	for(var i=0;i<len;i++){
+		var b=Math.floor(Math.random()*arr.length)
+		a.push(arr[b]);
+	}
+	return a.join('');
+}
+
+
+
+</script>
+</body>
+</html>

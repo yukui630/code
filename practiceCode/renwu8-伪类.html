@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		#header h1:first-child{
+			color:red;
+		} /*选中header下作为其父元素的第一个子元素的h1*/
+		#content h1:first-child{
+			background-color: blue;
+		} /*选中content下作为其父元素第一个子元素的h1*/
+		#content h1:first-of-type{
+			font-size: 20px;
+		} /*选中content下的每一级出现的第一个h1，不管其是不是第一个元素*/
+		#content p:first-of-type{
+			color: pink;
+		} /*选中content下每一级出现的第一个p*/
+	</style>
+</head>
+<body>
+<div id="header">
+    <h1>我是1</h1> <!-- 我是父元素的第一个h1 -->
+	<div id="content">
+		<h1>我是1-1</h1> <!-- 我也是父元素的第一个h1 -->
+		<p>我是段落1</p> <!-- 我是父元素的第一个p，但不是第一个元素 -->
+		<div class="cnt">			 
+			<p>我是段落1-1</p> <!--  我是父元素的第一个元素p -->
+			<h1>我是1-1-1</h1><!-- 我是父元素的第一个h1,但不是父元素的第一个元素-->
+			<p>我是段落1-2</p>   <!-- 我不是父元素的第一个p -->
+			<h1>我是1-1-2</h1> 
+			<h1>我是1-1-3</h1>
+			<div>
+				<h1>我是1-1-3-1</h1> <!-- 我是父元素的第一个元素h1 -->
+			</div>  
+		<h1>我是1-2</h1>
+	</div>
+    <h1>我是2</h1>
+    <h1>我是3</h1>
+    <h1>我是4</h1>
+    <h1>我是5</h1>
+</div>
+
+</body>
+</html>

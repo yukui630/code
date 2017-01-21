@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>ajax</title>
+</head>
+<body>
+
+	用户名：<input id="username" type="text" name="username" placeholder="请输入用户名"> <input id="type" type="text" name="type" placeholder="type">
+<input id="btn" type="submit" value="提交">
+<p id="content"></p>
+
+<script type="text/javascript">
+	function ajax(ops){
+		var xhr=new XMLHttpRequest();
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4 && xhr.status==200){
+				var json=xhr.responseText;
+				ops.success(json);
+				// console.log(xhr.responseText);
+			}
+			if(xhr.readyState==4 && xhr.status==404){
+				ops.error();
+			}
+		}
+		var datastr='';
+		for(var key in ops.data){
+			datastr += key+'='+ops.data[key]+'&';  
+		}
+		datastr = datastr.substr(0,datastr.length-1);
+		if(ops.type.toLowerCase() == 'post'){
+			xhr.open('post',ops.url,true);
+			xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			xhr.send(datastr);
+		}
+		if(ops.type.toLowerCase() == 'get'){
+			xhr.open('get',ops.url+'?'+datastr,true);
+			xhr.send();
+		}
+	}
+
+document.querySelector('#btn').addEventListener('click', function(){
+    ajax({
+        url: 'a.php',   //接口地址
+        type: document.querySelector('#type').value||'get',               // 类型， post 或者 get,
+        data: {
+            username: document.querySelector('#username').value
+            // password: 'abcd1234'
+        },
+        success: function(ret){
+            // console.log(ret);
+            dealwith(ret);       // {status: 0}
+        },
+        error: function(){
+           onError();
+        }
+    })
+});
+
+
+function dealwith(ret){
+    document.querySelector('#content').innerHTML=ret+'，欢迎你！';
+}
+function onError(){
+	document.querySelector('#content').innerHTML='出错了！';
+}
+
+
+</script>
+</body>
+</html>

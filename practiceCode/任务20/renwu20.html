@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>定时器，闭包</title>
+</head>
+<body>
+<script type="text/javascript">
+
+// var i=0;
+// function time(){
+// 	i++;
+// 	if(i>10){
+// 		console.log('结束');
+// 		return;
+// 	}else{
+// 		console.log(i);
+// 		setTimeout(time,1000);
+//     }
+// }
+
+//写一个函数，计算setTimeout平均[备注：新加]最小时间粒度
+
+(function mini(){
+	var i=0;
+	var start=Date.now();
+	var clock=setTimeout(function fn(){
+		i++;
+		if(i===1000){
+			var end=Date.now();
+			console.log((end-start)/i);
+		}
+		clock=setTimeout(fn,0)
+	},0)
+})()
+
+function delay(){
+	for(var i=0;i<5;i++){
+        function fn(){
+             console.log('delayer:' + i );
+        }
+    }
+}
+
+    for(var i=0;i<5;i++){
+        setTimeout(function(){
+             console.log('delayer:' + i );
+        }, 0);
+        console.log(i);
+    }
+
+</script>
+
+</body>
+</html>

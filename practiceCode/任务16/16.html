@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>function</title>
+</head>
+<body>
+<script type="text/javascript">
+	function sum(){
+		// var arguments[0,1,2];
+		var sum = 0;
+		for(var i=0;i<arguments.length;i++){
+			sum = sum + arguments[i]; 
+		}
+		return sum; //如果不写return，函数会默认返回undefined。
+	}
+	console.log(sum(1,2,10,10));
+	console.log(sum('s','1','2'))//如果不想前出现0，可以将sum=''，空。字符串拼接。
+    
+    var sayName = 'okk';//如果函数和变量取相同的名字，先是变量声明前置，然后函数声明前置，函数名会覆盖变量名。所以不管这个代码放在哪里，sayName都会是一个函数，再给函数赋值'okk'，则又成为了字符串，所以后面在调用的时候会报错。
+	function sayName(name){
+		if (typeof name !=='string') {
+			return;//满足条件直接跳出函数，调用return后，函数立即中断，即使后面还有语句也不再执行。
+		}
+		console.log('hello ',name);
+	}
+	sayName(123);
+	sayName('huanglu');
+	console.log(b);
+	var b=1;//变量提升
+ 
+    function saySex(sex){
+    	console.log('sex:',sex)
+    }
+    saySex('nan');//输出sex：nan
+    var saySex='ddd';
+    console.log(saySex); //输出ddd
+    saySex('nv');//报错！赋值后再调用就出错了。
+
+
+
+
+</script>
+</body>
+</html>

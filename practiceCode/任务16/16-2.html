@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>function2</title>
+</head>
+<body>
+<script type="text/javascript">
+var fn = 1;
+
+function fn(fn){
+    console.log(fn);
+    var b=222; 
+}
+
+console.log(fn);//输出1.先将变量提升，然后函数提升，然后给fn赋值，所以输出为1。	
+console.log(i);//输出undefined。
+for(var i=0;i<10;i++){
+	console.log(i); //输出0到9.
+}
+console.log(i); //输出10.在for中声明的变量也是一个全局变量。
+// console.log(b);//报错了！函数中声明的变量是属于该函数作用域的局部.
+
+function xx(){
+	console.log(i);
+	var i=99; //变量会提升到这个函数包括的所有代码前端。在函数内部形成一个局部作用域，这里的i是一个局部变量。
+	x=12; //不加var就一级一级往上找，将定义的变量x赋值为12,如果找完了所有的父级都没有定义过这个变量，那就相当于直接定义一个全局变量x并且赋值12.
+}
+xx();//输出undefined。
+console.log(i);//输出10。
+console.log(x);
+
+(function say(n){
+	console.log('hello world!')
+	console.log(n)
+})(10000) //立刻执行函数,执行后就销毁了。并且这种情况下函数声明不会提升。
+
+say();//报错。 Uncaught ReferenceError: say is not defined
+</script>
+</body>
+</html>

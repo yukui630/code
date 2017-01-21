@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>闭包</title>
+</head>
+<body>
+<script type="text/javascript">
+//从一个函数里面return出另外一个函数，用于暂存变量。闭包主要用于封装
+	// (function(){
+	// 	console.log(sum(1)(2));
+	// 	console.log(sum(5)(-1));
+	// 	function sum(a){
+	// 		return function(b){
+	// 			return a+b;
+	// 		}
+	// 	}
+	// }())
+//sum(1)=function(b){return 1+b}
+
+//一个猴子吃香蕉，第一天吃一半多一个，第二天吃剩下的一半多一个，...第五天吃完后还剩一个,问一共多少个香蕉（递归）
+
+function fn(n){
+	if(n===1){return 1;}else{
+		return (fn(n-1)+1)*2;
+	}
+}
+//1.修改代码让fnArr[i]() 输出 i。使用两种以上的方法
+var fnArr = [];
+for (var i = 0; i < 10; i ++) {
+	(function(n){
+		fnArr[i] =  function(){
+        return n; }
+    })(i)
+}
+//第二种方式
+console.log( fnArr[3]() ); 
+
+	(function(){
+		var n=i;
+		fnArr[i] =  function(){
+        return n; }
+    })()
+
+//下面这段代码输出？如何输出delayer:0,delayer:1...（使用闭包来实现）
+for(var i=0;i<5;i++){
+    setTimeout(function(){
+         console.log('delayer:' + i );
+    }, 0);
+    console.log(i);
+}
+
+for(var i=0;i<5;i++){
+	(function(){
+		var n=i;
+		setTimeout(function(){
+          console.log('delayer:' + n );
+        }, 0);
+})()
+    console.log(i);
+}
+
+
+
+function outerFn(){
+	var speed;
+	function setSpeed(n){
+        return speed=n;
+	}
+	function getSpeed(){
+		console.log(speed);
+	}
+	function accelerate(){
+		return speed +=10;
+	}
+	function decelerate(){
+		if(speed >=10){
+			return speed -=10;
+		}else{
+			return speed=0;
+		}
+	}
+	function getStatus(){
+		if(speed<=0){
+			console.log('stop');
+		}else{
+			console.log('running')
+		}
+	}
+	return {'setSpeed':setSpeed,'getSpeed':getSpeed,'accelerate':accelerate,'decelerate':decelerate,'getStatus':getStatus};
+}
+var Car=outerFn();
+
+
+</script>
+</body>
+</html>
