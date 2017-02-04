@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+function Person(name){
+    this.name = name;
+}
+Person.prototype.sayName = function(){
+    console.log('My name is :' + this.name);
+}
+var p = new Person("若愚")
+p.sayName();
+//console.log(p.__proto__=== Person.prototype);
+//console.log(Person.prototype.constructor=== Person);
+	
+	 function getMostOften(str){
+	 	var obj={};
+	 	for(var i=0;i<str.length;i++){
+	 		var char=str[i];
+	 		if(obj[char]){
+	 			obj[char]++;
+	 		}else{
+	 			obj[char]=1;
+	 		}
+	 	}
+	 	console.log(obj);
+	 	var max=0;
+	 	var maxChar=null;
+	 	for(var key in obj){
+	 		if(max<obj[key]){
+	 			max=obj[key];
+	 			maxChar=key;
+	 		}
+	 	}
+	 	console.log('最多的字符是'+maxChar);
+	 	console.log('出现的次数是'+max);
+	 }
+
+	function InstanceOf(a,b){
+	    var proto=a.__proto__;
+	   do{
+	   	if(proto === b.prototype){
+	   		return true;
+	   	}else{
+	   		proto=proto.__proto__;
+	   	}
+	   }
+	   while(proto)
+	    return false;
+	}
+	//方法1
+	function People(name, sex){
+	    this.name = name;
+	    this.sex = sex;
+	    this.printName = function(){
+	        console.log(this.name);
+	    }
+	}
+	var p1 = new People('饥人谷', 2)
+
+	//方法2
+	function Person(name, sex){
+	    this.name = name;
+	    this.sex = sex;
+	}
+
+	Person.prototype.printName = function(){
+	    console.log(this.name);
+	}
+	var p1 = new Person('若愚', 27);
+
+	function Person(name, sex){
+	    this.name = name;
+	    this.sex = sex;
+	}
+	function Male(name, sex, age){
+	    Person.call(this, name, sex);    //这里的 call 有什么作用
+	    this.age = age;
+	}
+
+
+
+	function Person(name, sex){
+	    this.name=name;
+	    this.sex=sex;
+	    this.printName=function(){
+	    	console.log('Hello, '+name);
+	    }
+	}
+
+	Person.prototype.getName = function(){
+	    console.log(this.name);
+	};    
+
+	function Male(name, sex, age){
+	   Person.call(this,name,sex);
+	   this.age=age;
+	}
+
+	function inherit(superType, subType){
+	    var _prototype  = Object.create(superType.prototype);
+	    _prototype.constructor = subType;
+	    subType.prototype = _prototype;
+	}
+	inherit(Person, Male);
+
+	Male.prototype.getAge = function(){
+	    console.log(this.age);
+	};
+
+	var ruoyu = new Male('若愚', '男', 27);
+	ruoyu.printName();
+	ruoyu.getName();
+
+</script>
+</body>
+</html>
