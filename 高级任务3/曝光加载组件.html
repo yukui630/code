@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+	<title>曝光加载组件</title>
+	<style type="text/css">
+		.ct>div{
+			position: relative;
+			width: 200px;
+			height: 200px;
+			margin: 10px;
+			background: #ccc;
+			transition: all 0.5s;
+		}
+	</style>
+</head>
+<body>
+<div class="ct">
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</div>
+<div class="ct">
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</div>
+<div class="ct">
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</div>
+
+<script src="jquery.min.js"></script>
+<script type="text/javascript">
+function Exposure($target,callback){
+	this.$target=$target;
+	this.callback=callback;
+	//this.isLoaded=false;
+	this.bind();
+	this.check();
+}
+Exposure.prototype.check=function(){
+	if(this.isShow(this.$target)){
+		this.callback(this.$target);
+		this.$target.attr('isLoaded',true);
+	}
+};
+Exposure.prototype.bind=function(){
+	var _this=this;
+	setTimeout(function(){
+		$(window).on('scroll',function(){
+			if(!_this.$target.attr('isLoaded')){
+				_this.check();
+			}
+		});
+		console.log(1);
+	},300);
+};
+Exposure.prototype.isShow=function(){
+	var windowHeight=$(window).height(),
+	    scrollTop=$(window).scrollTop(),
+	    nodeHeight=this.$target.height(),
+	    offsetTop=this.$target.offset().top;
+	if(windowHeight+scrollTop > offsetTop && scrollTop<offsetTop+nodeHeight){
+		return true;
+	}else{
+		return false;
+	}
+};
+var lazy=(function(){
+	return {
+		init:function($targets,callback){
+			$targets.each(function(idx,target){
+				new Exposure($(target),callback);
+			});
+		}
+	};
+})();
+lazy.init($('.ct').eq(1).find('div'),function($node){
+	$node.animate({
+		width:'+=50px'
+	},500).animate({
+		left:'+=50px'
+	}).css({
+		'background':'#FF69B4'
+	})
+});
+lazy.init($('.ct').eq(2).find('div'),function($node){
+	$node.animate({
+		width:'+=100px'
+	},500).animate({
+		left:'+=100px'
+	}).css({
+		'background':'#FF1493'
+	})
+});
+</script>
+</body>
+</html>
