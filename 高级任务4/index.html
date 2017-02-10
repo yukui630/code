@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="require.js" data-main="config"></script>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="about.css">
+<style type="text/css">
+html,body,ul,li,h3,p{
+	margin:0;
+	padding: 0;
+}
+html,body,.carousel,.img-ct,.img-ct a{
+	width: 100%;
+	height: 100%;
+}
+
+li{
+	list-style: none;
+}
+a{
+	display: inline-block;
+	text-decoration: none;
+}
+.carousel{
+	font-family: '幼圆';
+}
+.carousel{
+	position: relative;
+	overflow: hidden;
+}
+.img-ct{
+	position: relative;
+}
+.img-ct:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.img-ct li{
+	float: left;
+	width: 1600px;
+	height: 100%;
+}
+
+.arrow{
+	position: absolute;
+	top: 50%;
+	margin-top: -25px; /*垂直居中*/
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	background: #555;
+	color: #fff;
+	font-size: 22px;
+	border-radius: 50px;
+	box-shadow: 0 0 5px #888;
+	opacity: 0.7;
+}
+.arrow:hover{
+	opacity: 0.9;
+}
+.pre{
+	left: 20px;
+}
+.next{
+	right: 20px;
+}
+.bullet{
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%); /*水平偏移，使其水平居中*/
+}
+.bullet li{
+	width: 16px;
+	height: 4px;
+	border-radius: 4px;
+	background: #fff;
+	display: inline-block;
+	cursor: pointer;
+}
+.bullet li.active{
+	background: #666;
+}
+
+.img-ct .text{
+	width: 1600px;
+	height: 100%;
+	text-align: center;
+	color: #fff;
+}
+.img-ct .main{
+	position: relative;
+	top: 50%;
+}
+.img-ct .main h3{
+	margin-bottom: 16px;
+}
+.gotopBtn{
+	width:100px;
+	height: 50px;
+	font-size: 20px;
+	background:	#FFA500;
+	color: #fff;
+}
+</style>
+</head>
+<body>
+	<div class="carousel">
+	<ul class="img-ct">
+		<li data-id='0'>
+			<a href="#"><div class="text">
+                <div class="main"><h3>不将就</h3><p>互相折磨到白头，悲伤坚决不放手</p></div>
+			</div></a>
+		</li>
+		<li data-id='1'>
+			<a href="#"><div class="text">
+			    <div class="main"><h3>富士山下</h3><p>我把这陈年风䄛，送赠你解咒</p></div>
+			</div></a>
+		</li>
+		<li data-id='2'>
+		    <a href="#"><div class="text">
+		       <div class="main"><h3>独照</h3><p>记忆是照片，总不停拿出来翻阅</p></div>
+		    </div></a>
+		</li>
+		<li data-id='3'>
+		    <a href="#"><div class="text">
+		        <div class="main"><h3>空港</h3><p>剪断月光，停在没有回忆的空港</p></div>
+		    </div></a>
+		</li>
+	</ul>
+	<a href="#" class="pre arrow"><</a>
+	<a href="#" class="next arrow">></a>
+	<ul class="bullet">
+		<li class="active"></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+
+<div id="about">
+	<div class="ct">
+		<h1>ABOUT</h1>
+		<p>Lorem ipsum dolor sit amet consectetur.</p>
+		<ul class="about">
+			<li>
+				<img src="http://p1.bpimg.com/567571/d94aa0c08c155426.jpg" alt="" class="img-circle">
+			    <div class="img-line"></div>
+			    <div class="about1">
+			    	<h3>2009-2011</h3>
+			    	<h3>Our Humble Beginnings</h3>
+			    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+			    </div>
+			</li>
+			<li>
+				<img src="http://i1.piimg.com/567571/f471b7840c8c3b67.jpg" alt="" class="img-circle">
+			    <div class="img-line"></div>
+			    <div class="about2">
+			    	<h3>MARCH 2011</h3>
+			    	<h3>An Agency is Born</h3>
+			    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+			    </div>
+			</li>
+			<li>
+				<img src="http://i1.piimg.com/567571/b85681f38cd286bd.jpg" alt="" class="img-circle">
+			    <div class="img-line"></div>
+			    <div class="about1">
+			    	<h3>DECEMBER 2012</h3>
+			    	<h3>Transition to Full Service</h3>
+			    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+			    </div>
+			</li>
+			<li>
+				<img src="http://p1.bpimg.com/567571/2226ed7c69d4a766.jpg" alt="" class="img-circle">
+			    <div class="img-line"></div>
+			    <div class="about2">
+			    	<h3>JULY 2014</h3>
+			    	<h3>Phase Two Expansion</h3>
+			    	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+			    </div>
+			</li>
+			<li>
+				<div class="last-circle">
+				<p>BE PART <br>OF OUR<br> STORY!</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+</body>
+</html>
