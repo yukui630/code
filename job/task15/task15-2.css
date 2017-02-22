@@ -29,7 +29,7 @@ p{
 	width: 100%;
 	height:100%;
 	color: #fff;
-	background: url(http://www.shiniuni.com/themes/default/images/idea3.jpg); 
+	background: url(img/headbg_1.jpg); 
 	background-size: 100% 100%;
 }
 .ct{
@@ -136,27 +136,27 @@ p{
 	height: 250px;
 }
 #port .img1{
-	background: url(http://www.shiniuni.com/themes/default/images/act2.jpg);
+	background: url(img/img1.jpg);
 	background-size: cover;
 }
 #port .img2{
-	background: url(http://www.000520.com//upload/images/20151129/1448788063306386.jpg);
+	background: url(img/img2.jpg);
 	background-size: cover;
 }
 #port .img3{
-	background: url(http://pic.7y7.com/Uploads/Picture/2016-11-25/58378a4f4773c_275_275.jpg);
+	background: url(img/img3.jpg);
 	background-size: cover;
 }
 #port .img4{
-	background: url(http://pic.7y7.com/Uploads/Picture/2017-01-17/587dc954b4ba5_275_275.jpg);
+	background: url(img/img4.jpg);
 	background-size: cover;
 }
 #port .img5{
-	background: url(http://pic.7y7.com/Uploads/Picture/2017-02-15/58a3c759db62d_600_0_water.png);
+	background: url(img/img5.png);
 	background-size: cover;
 }
 #port .img6{
-	background: url(http://pic.7y7.com/Uploads/Picture/2016-12-09/584a5e41bdb7e_400_400.jpg);
+	background: url(img/img6.jpg);
 	background-size: cover;
 }
 #port h3{
