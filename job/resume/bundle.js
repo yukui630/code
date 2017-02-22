@@ -10615,7 +10615,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABdCAIAAAAT
 /* WEBPACK VAR INJECTION */(function(jQuery) {
 
 // Easy Responsive Tabs Plugin
-// Author: Samson.Onna <Email : samson3d@gmail.com>
+
 
 (function ($) {
     $.fn.extend({
@@ -11037,39 +11037,39 @@ __webpack_require__(7);
 __webpack_require__(5);
 __webpack_require__(4);
 function showhide() {
-    var div = document.getElementById("newpost");
-    if (div.style.display !== "none") {
-        div.style.display = "none";
-    } else {
-        div.style.display = "block";
-    }
+  var div = document.getElementById("newpost");
+  if (div.style.display !== "none") {
+    div.style.display = "none";
+  } else {
+    div.style.display = "block";
+  }
 }
 $(document).ready(function () {
-    $('#horizontalTab').easyResponsiveTabs({
-        type: 'default', //Types: default, vertical, accordion
-        width: 'auto', //auto or any width like 600px
-        fit: true, // 100% fit in a container
-        closed: 'accordion', // Start closed if in accordion view
-        activate: function activate(event) {
-            // Callback function if tab is switched
-            var $tab = $(this);
-            var $info = $('#tabInfo');
-            var $name = $('span', $info);
-            $name.text($tab.text());
-            $info.show();
-        }
-    });
-    $('#ab').easyResponsiveTabs({
-        type: 'vertical',
-        width: 'auto',
-        fit: true
-    });
+  $('#horizontalTab').easyResponsiveTabs({
+    type: 'default', //Types: default, vertical, accordion
+    width: 'auto', //auto or any width like 600px
+    fit: true, // 100% fit in a container
+    closed: 'accordion', // Start closed if in accordion view
+    activate: function activate(event) {
+      // Callback function if tab is switched
+      var $tab = $(this);
+      var $info = $('#tabInfo');
+      var $name = $('span', $info);
+      $name.text($tab.text());
+      $info.show();
+    }
+  });
+  $('#ab').easyResponsiveTabs({
+    type: 'vertical',
+    width: 'auto',
+    fit: true
+  });
 
-    $('#cmt').easyResponsiveTabs({
-        type: 'vertical',
-        width: 'auto',
-        fit: true
-    });
+  $('#cmt').easyResponsiveTabs({
+    type: 'vertical',
+    width: 'auto',
+    fit: true
+  });
 });
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
